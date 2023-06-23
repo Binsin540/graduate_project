@@ -33,7 +33,7 @@ class _HomePageOState extends State<HomePageO> {
                   TitleText(text: tomorrow),
                 ],
               ),
-              FlexButton(color: ColorPattren.titleText,
+              FlexButton(color: ColorPattren.lightPink,
                 onTap: () {
                   Get.to(RequestPage());
                 },
@@ -47,7 +47,7 @@ class _HomePageOState extends State<HomePageO> {
               ),
             ],
           ),
-          Divider(height: 20, thickness: 4, color: ColorPattren.titleText),
+          Divider(height: 20, thickness: 4, color: ColorPattren.darkAccentBlue),
           ListView.builder(
             shrinkWrap: true,
             physics: const NeverScrollableScrollPhysics(),
@@ -61,7 +61,7 @@ class _HomePageOState extends State<HomePageO> {
                         height: 150,
                         decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(24),
-                            color: ColorPattren.itemColor)),
+                            color: ColorPattren.lightPink)),
                     Positioned(
                         left: 15,
                         top: 20,
@@ -74,12 +74,12 @@ class _HomePageOState extends State<HomePageO> {
                     Positioned(left: 140,top: 20,bottom: 15,
                       child: Container(width:200 ,child:Column(crossAxisAlignment: CrossAxisAlignment.start,children: [
                         TitleText(text: "Daily Checkout :",),
-                         Divider(height: 4,thickness: 4,color: ColorPattren.titleText,endIndent: 50),
+                         Divider(height: 4,thickness: 4,color: ColorPattren.darkAccentBlue,endIndent: 50),
                         SubText(overflow: TextOverflow.ellipsis,maxLine: 2,text: "Lorem ipusm[10]sldkfhlskdfhsldhfsldkfslkdfhlksdhfpqipqefihakhflkafdasdasdasdasdsadasdasdasdasdasd",size: 12,),
                         SubText(text: "pay : 12000 Sp",fontWeight: FontWeight.w500,size: 12),
                       ]) ,),
                     ),
-                    Positioned(bottom: 10,right: 10,child: FlexButton(color: ColorPattren.btnClolor,borderColor: Colors.transparent,width: 120,height: 40,widget: TitleText(text: 'Check Out',size: 18),))
+                    Positioned(bottom: 10,right: 10,child: FlexButton(color: ColorPattren.orangeAccent,borderColor: Colors.transparent,width: 120,height: 40,widget: TitleText(text: 'Check Out',size: 18),))
                   ],
                 ),
               );

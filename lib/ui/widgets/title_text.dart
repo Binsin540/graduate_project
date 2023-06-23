@@ -6,7 +6,7 @@ class TitleText extends StatelessWidget {
   TitleText({
     super.key,
     required this.text,
-    this.color = ColorPattren.titleText,
+    this.color = ColorPattren.darkAccentBlue,
     this.size = 20,
   });
   String text;

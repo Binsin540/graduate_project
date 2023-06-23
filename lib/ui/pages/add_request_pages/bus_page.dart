@@ -14,7 +14,7 @@ class _BusPageState extends State<BusPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: ColorPattren.itemColor,
+      backgroundColor: ColorPattren.backGroundColor,
       body: Center(
           child: Stack(children: [
         SvgPicture.asset("assets/images/BUSSEN.svg", height: 1500, width: 1000),

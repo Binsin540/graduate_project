@@ -15,7 +15,7 @@ TextInputType? inputType;
     return Container(padding: EdgeInsets.symmetric(vertical: 10,horizontal: 10),alignment: Alignment.topLeft,
       decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(12),
-          color: ColorPattren.itemColor,
+          color: ColorPattren.lightPink,
           border: Border.all(
             color: Color(0x42424242),
             width: 2,

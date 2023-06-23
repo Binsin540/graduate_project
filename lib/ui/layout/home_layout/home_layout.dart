@@ -24,11 +24,11 @@ class _HomelayoutState extends State<Homelayout> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(leading: Drawer(backgroundColor: ColorPattren.backGroundColor,elevation: 0,child: Icon(Icons.menu,color: ColorPattren.btnClolor,)),
+      appBar: AppBar(leading: Drawer(backgroundColor: ColorPattren.backGroundColor,elevation: 0,child: Icon(Icons.menu,color: ColorPattren.darkBlue,)),
           actions: [Padding(
             padding: const EdgeInsets.all(8.0),
             child: CircleAvatar(
-                backgroundColor: ColorPattren.btnClolor,
+                backgroundColor: ColorPattren.darkAccentBlue,
                 child: Icon(Icons.person)),
           ),],
           backgroundColor: ColorPattren.backGroundColor,
@@ -47,7 +47,7 @@ class _HomelayoutState extends State<Homelayout> {
           selectedFontSize: 18,
           unselectedItemColor: Colors.grey[500],
           selectedItemColor: ColorPattren.backGroundColor,
-          backgroundColor: ColorPattren.titleText,
+          backgroundColor: ColorPattren.lightPink,
           items: [
             BottomNavigationBarItem(
               label: 'home',

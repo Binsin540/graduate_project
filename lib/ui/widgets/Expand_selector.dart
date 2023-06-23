@@ -26,14 +26,14 @@ double conHi=0;
         decoration: BoxDecoration(
             border: Border.all(color: Color(0x42424242)),
             borderRadius: BorderRadius.circular(12),
-            color: ColorPattren.itemColor),
+            color: ColorPattren.lightPink),
         child: Column(
           children: [
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
                 TitleText(text: widget.title),
-                SubText(text: widget.selectString![widget.selectedItem],color: ColorPattren.btnClolor),
+                SubText(text: widget.selectString![widget.selectedItem],color: ColorPattren.orangeAccent),
                 IconButton(
                     onPressed: () {
                       setState(() {
@@ -59,7 +59,7 @@ double conHi=0;
                     },
                     icon: Icon(
                       uniIcon,
-                      color: ColorPattren.btnClolor,
+                      color: ColorPattren.orangeAccent,
                     )),
               ],
             ),
@@ -89,7 +89,7 @@ double conHi=0;
                           borderRadius: BorderRadius.circular(20),
                           color: widget.selectedItem == index
                               ? Colors.pink.shade200
-                              : ColorPattren.itemColor,
+                              : ColorPattren.lightPink,
                           border: Border.all(width: 1,color: Color(0x42424242))),
                       child: TitleText(text: widget.selectString![index]),
                     ),

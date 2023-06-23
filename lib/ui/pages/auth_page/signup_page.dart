@@ -26,7 +26,7 @@ class _SignUpPageState extends State<SignUpPage> {
               padding: const EdgeInsets.only(bottom: 20.0),
               child: TitleText(text: 'Welocome to Orchid',size: 26),
             ),
-              TitleText(text: "First Name ",color: ColorPattren.titleText,),
+              TitleText(text: "First Name ",color: ColorPattren.darkPurple,),
             Textff(text: "",),
             TitleText(text: 'Last Name',),
             Textff(text: ''),

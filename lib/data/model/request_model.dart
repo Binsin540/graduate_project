@@ -16,11 +16,11 @@ RequestModel uireq=RequestModel(uniID: ['Spu','Iust','Aiu','Ipu','Ru','Jpu'],
   city: ['jdaydet Artouz','Mazzeh','BabToma'],
   tripTime: [DropdownMenuItem(
     value: '6:35',
-    child: TitleText(color: ColorPattren.btnClolor,text: "6:35"),
+    child: TitleText(color: ColorPattren.orangeAccent,text: "6:35"),
   ),
     DropdownMenuItem(
       value: '8:35',
-      child: TitleText(color: ColorPattren.btnClolor,text: "8:35"),
+      child: TitleText(color: ColorPattren.orangeAccent,text: "8:35"),
     )],
   busStop: [
   ['قطنا كنيسة',"كازية حمودة",'مفرق جديدة الثاني',"بحرى","ساحة بيسان","مخفر","دوار الجندي","قوس جديدة","مفرق صحنايا"],

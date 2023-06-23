@@ -29,7 +29,7 @@ late int bSId=0;
   Widget build(BuildContext context) {
     return Scaffold(bottomNavigationBar: FlexButton(onTap: (){
       Get.to(BusPage());
-    },borderWidth: 1.5,borderColor: Colors.pink.shade200,height: 70,width: double.maxFinite,color: ColorPattren.titleText,widget: TitleText(text: "Check It Out",color: Colors.pink.shade200),),
+    },borderWidth: 1.5,borderColor: Colors.pink.shade200,height: 70,width: double.maxFinite,color: ColorPattren.darkAccentBlue,widget: TitleText(text: "Check It Out",color: Colors.pink.shade200),),
       backgroundColor: ColorPattren.backGroundColor,
       body: SingleChildScrollView(
         child: Padding(
@@ -42,7 +42,7 @@ late int bSId=0;
                 padding: const EdgeInsets.symmetric(vertical: 10.0),
                 child: TitleText(
                   text: 'Add Your Request :',
-                  color: ColorPattren.titleText,
+                  color: ColorPattren.darkAccentBlue,
                   size: 26,
                 ),
               ),
@@ -66,12 +66,12 @@ late int bSId=0;
               Padding(
                 padding: const EdgeInsets.symmetric(vertical: 20.0),
                 child: Container(
-                  child: Container(decoration: BoxDecoration(color: ColorPattren.itemColor,borderRadius: BorderRadius.circular(12),border: Border.all(color: Color(0x42424242))),
+                  child: Container(decoration: BoxDecoration(color: ColorPattren.darkBlue,borderRadius: BorderRadius.circular(12),border: Border.all(color: Color(0x42424242))),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
-                        TitleText(text: "Chose your Trip time:  ",color: ColorPattren.titleText),
-                        DropdownButton(icon:  Icon(CupertinoIcons.clock,color: ColorPattren.btnClolor),
+                        TitleText(text: "Chose your Trip time:  ",color: ColorPattren.orangeAccent),
+                        DropdownButton(icon:  Icon(CupertinoIcons.clock,color: ColorPattren.orangeAccent),
                           value: widget.selectedTrip,
                           elevation: 1,
                           items: uireq.tripTime
