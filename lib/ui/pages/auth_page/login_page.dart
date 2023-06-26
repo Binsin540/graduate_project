@@ -16,6 +16,10 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
+  TextEditingController _emailController=TextEditingController();
+  TextEditingController _passController=TextEditingController();
+
+  bool visiblty=false;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -48,29 +52,45 @@ class _LoginPageState extends State<LoginPage> {
                     children: [
                       Padding(
                         padding: const EdgeInsets.all(8.0),
-                        child: Textff(
+                        child: Textff(onPress: (){},
                           text: 'Email',
                           hintColor: ColorPattren.lightPink,
                           pficon: Icons.mail,
-                          prefColor: ColorPattren.lightPink,
+                          prefColor: ColorPattren.lightPink,controller: _emailController,
                         ),
                       ),
                       Padding(
                         padding: const EdgeInsets.all(8.0),
-                        child: Textff(
+                        child: Textff(sficon: visiblty?Icons.visibility:Icons.visibility_off,
                           text: 'Password',
                           hintColor: ColorPattren.lightPink,
                           pficon: Icons.security,
                           prefColor: ColorPattren.lightPink,
                           suffColor: ColorPattren.lightPink,
-                          sficon: Icons.visibility,
+                          onPress: (){
+                            setState(() {
+                              if (visiblty){
+                                visiblty=false;
+                              }else{visiblty=true;};
+                            });
+                          },
+                          keyType:TextInputType.visiblePassword,
+                          visiblity: visiblty,controller:_passController ,
+
                         ),
                       ),
                       FlexButton(
                         borderWidth: 3,
                         color: ColorPattren.orangeAccent,
                         onTap: () {
-                          Get.to(Homelayout());
+                          if(_passController.text=="" || _emailController.text==""){
+                            Get.snackbar(snackPosition:SnackPosition.BOTTOM ,animationDuration: Duration( seconds: 1),"Eror", "invalid password or email");
+
+                          }else{
+                            Get.snackbar("welcom", '');
+                            Get.to(Homelayout());
+print(_passController.text);
+                          }
                         },
                         height: 50,
                         width: 150,
@@ -90,7 +110,9 @@ class _LoginPageState extends State<LoginPage> {
                 Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: FlexButton(onTap: (){
-                     Get.to(SignUpPage());
+                    Get.to(SignUpPage());
+
+
                   },
                       widget: TitleText(text: 'Create your Account Now',color: ColorPattren.lightPink),
                       borderColor: ColorPattren.orangeAccent,

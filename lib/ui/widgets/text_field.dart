@@ -4,7 +4,7 @@ import 'package:orchid_app/ui/style/app_color.dart';
 
 
 class Textff extends StatelessWidget {
-   Textff({this.hintColor,this.suffColor,
+   Textff({required this.onPress,this.controller,this.visiblity=false,this.hintColor,this.suffColor,
     this.prefColor,super.key,this.pficon,this.sficon,required this.text,this.keyType
   });
 String text;
@@ -14,6 +14,9 @@ TextInputType? keyType;
    Color? prefColor ;
    Color? suffColor ;
    Color? hintColor;
+   bool visiblity;
+   TextEditingController? controller;
+   Function() onPress;
   @override
   Widget build(BuildContext context) {
     return TextFormField(decoration: InputDecoration(filled: true,fillColor:ColorPattren.lightPink.withOpacity(0.2),hintStyle: TextStyle(color: Colors.black,fontSize: 18),
@@ -22,8 +25,10 @@ TextInputType? keyType;
             labelStyle: TextStyle(fontSize: 20,color: hintColor),
   labelText: text,
             prefixIcon: Icon(pficon,color: prefColor,),
-            suffixIcon:Icon(sficon,color: suffColor,) ),
+            suffixIcon:IconButton(icon:Icon( sficon),color: suffColor, onPressed: onPress,) ),
       keyboardType: keyType,
+      controller: controller,
+      obscureText: visiblity,
 
     );
   }
