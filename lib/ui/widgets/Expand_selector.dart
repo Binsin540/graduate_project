@@ -4,11 +4,11 @@ import 'package:orchid_app/ui/widgets/title_text.dart';
 
 import '../style/app_color.dart';
 class ExpandSelector extends StatefulWidget {
-   ExpandSelector({this.sValue='',required this.title,required this.selectString,Key? key}) : super(key: key);
+   ExpandSelector({required this.sValue,required this.title,required this.selectString,Key? key}) : super(key: key);
 List<dynamic>?selectString;
 String title;
-   int selectedItem=0;
-late String sValue;
+int selectedItem=0;
+late final String sValue;
 
 
 
@@ -33,7 +33,7 @@ double conHi=0;
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
                 TitleText(text: widget.title),
-                SubText(text: widget.selectString![widget.selectedItem],color: ColorPattren.orangeAccent),
+                SubText(text: widget.selectString![widget.selectedItem],color: ColorPattren.darkPurple),
                 IconButton(
                     onPressed: () {
                       setState(() {
@@ -59,7 +59,7 @@ double conHi=0;
                     },
                     icon: Icon(
                       uniIcon,
-                      color: ColorPattren.orangeAccent,
+                      color: ColorPattren.darkPurple,
                     )),
               ],
             ),
