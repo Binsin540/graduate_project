@@ -2,11 +2,9 @@ import 'package:flutter/material.dart';
 
 import '../../ui/style/app_color.dart';
 
-
 class MultiSelectItem extends StatefulWidget {
   MultiSelectItem(
-      {
-        required this.listOfItem,
+      {required this.listOfItem,
       this.width,
       this.height = 70,
       this.shape,
@@ -46,20 +44,32 @@ class _MultiSelectItemState extends State<MultiSelectItem> {
   Widget build(BuildContext context) {
     return Container(
       child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 20.0,vertical: 20),
-        child: Column(crossAxisAlignment: CrossAxisAlignment.start,
+        padding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 20),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             MaterialButton(
               onPressed: _showMultiSelect,
               color: widget.buttColor,
               height: widget.height,
               shape: widget.shape,
-                minWidth: widget.width,
+              minWidth: widget.width,
               child: widget.child,
             ),
-            const Divider(height: 30,),
+            const Divider(
+              height: 30,
+            ),
             Wrap(
-              children: _selectedItems.map((e) => Container(child:  Text(e,style: TextStyle(color: ColorPattren.lightPink)),decoration: BoxDecoration(borderRadius: BorderRadius.circular(20),color: ColorPattren.darkBlue),padding: const EdgeInsets.all(20),)).toList(),
+              children: _selectedItems
+                  .map((e) => Container(
+                        child: Text(e,
+                            style: TextStyle(color: ColorPattren.lightPink)),
+                        decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(20),
+                            color: ColorPattren.darkBlue),
+                        padding: const EdgeInsets.all(20),
+                      ))
+                  .toList(),
             )
           ],
         ),
@@ -93,31 +103,36 @@ class _MultiSelectState extends State<MultiSelect> {
   }
 
   void _submit() {
-    print(
-      _selectedItems
-    );
+    print(_selectedItems);
     Navigator.pop(context, _selectedItems);
   }
 
   @override
   Widget build(BuildContext context) {
     return AlertDialog(
-        title: Directionality(textDirection: TextDirection.rtl,child: const Text('اختار المواقف:')),
-        content: SingleChildScrollView(
-          child: ListBody(
-            children: widget.items
-                .map((item) => CheckboxListTile(
-                    value: _selectedItems.contains(item),
-                    title: Text(item),
-                    controlAffinity: ListTileControlAffinity.leading,
-                    onChanged: (isChecked) => _itemChange(item, isChecked!)))
-                .toList(),
-
-          ),
+      title: const Directionality(
+          textDirection: TextDirection.rtl,
+          child: Text('اختار المواقف:')),
+      content: SingleChildScrollView(
+        child: ListBody(
+          children: widget.items
+              .map((item) => CheckboxListTile(
+                  value: _selectedItems.contains(item),
+                  title: Text(item),
+                  controlAffinity: ListTileControlAffinity.leading,
+                  onChanged: (isChecked) => _itemChange(item, isChecked!)))
+              .toList(),
         ),
+      ),
       actions: [
         TextButton(onPressed: _cancel, child: Text('Cancel')),
-        ElevatedButton(style: ButtonStyle(backgroundColor: MaterialStatePropertyAll(ColorPattren.lightPink,)),onPressed: _submit, child: Text('Submit'))
+        ElevatedButton(
+            style: ButtonStyle(
+                backgroundColor: MaterialStatePropertyAll(
+              ColorPattren.lightPink,
+            )),
+            onPressed: _submit,
+            child: Text('Submit'))
       ],
     );
   }

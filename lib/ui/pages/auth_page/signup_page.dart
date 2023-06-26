@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:orchid_app/ui/layout/home_layout/home_layout.dart';
 import 'package:orchid_app/ui/widgets/flexibale_button.dart';
 import 'package:orchid_app/ui/widgets/text_field.dart';
 import 'package:orchid_app/ui/widgets/title_text.dart';
@@ -34,6 +36,8 @@ class _SignUpPageState extends State<SignUpPage> {
               Textff(text: ''),
               TitleText(text: 'Phone Number',),
               Textff(text: ''),
+              TitleText(text: "unevercity Id"),
+              Textff(text: ''),
               TitleText(text: 'Password',),
               Textff(text: ''),
               TitleText(text: 'Confirm Password',),
@@ -42,7 +46,7 @@ class _SignUpPageState extends State<SignUpPage> {
                 children: [
                   Padding(
                     padding: const EdgeInsets.all(15.0),
-                    child: FlexButton(widget: TitleText(text: 'SignUP',size: 24),borderColor: Colors.transparent,onTap: (){},width: 210,height: 70,),
+                    child: FlexButton(color: ColorPattren.darkPurple,widget: TitleText(text: 'SignUP',size: 24,color: ColorPattren.lightPink),borderColor: Colors.transparent,onTap: (){Get.to(Homelayout());},width: 210,height: 70,),
                   ),
                 ],
               )

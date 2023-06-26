@@ -17,10 +17,10 @@ TextInputType? inputType;
           borderRadius: BorderRadius.circular(12),
           color: ColorPattren.lightPink,
           border: Border.all(
-            color: Color(0x42424242),
+            color: Colors.transparent  ,
             width: 2,
           )),
-      height: 100,child: Column(crossAxisAlignment: CrossAxisAlignment.start,mainAxisAlignment: MainAxisAlignment.start,children: [
+      height: 103,child: Column(crossAxisAlignment: CrossAxisAlignment.start,mainAxisAlignment: MainAxisAlignment.start,children: [
         TitleText(size: 18,text: title,),
         TextFormField(keyboardType: inputType,controller:controll,decoration: InputDecoration(  enabledBorder: UnderlineInputBorder(borderSide: BorderSide(color: Colors.pink.shade100))),)
       ]),

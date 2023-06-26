@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
+import 'package:orchid_app/admin_panel/home_page/add_city.dart';
 
 import '../../ui/style/app_color.dart';
 import '../widgets/multi_item.dart';
@@ -21,12 +24,12 @@ class _AddFlightState extends State<AddFlight> {
       bottomNavigationBar: Padding(
         padding: const EdgeInsets.all(8.0),
         child: InkWell(
-          child: Container(alignment: Alignment.center,child: Text('Submit',style: TextStyle(color: ColorPattren.darkBlue,fontSize: 36)),
+          child: Container(alignment: Alignment.center,
               height: 100,
-              decoration: BoxDecoration(
+              decoration: BoxDecoration(gradient: LinearGradient(begin: Alignment.topCenter,end: Alignment.bottomCenter,colors: [ColorPattren.darkAccentBlue,ColorPattren.darkPurple]),
                   border: Border.all(color: ColorPattren.darkPurple, width: 5),
                   borderRadius: BorderRadius.circular(20),
-                  color: ColorPattren.orangeAccent)),
+                  ), child: Text('Submit',style: TextStyle(color: ColorPattren.backGroundColor,fontSize: 36))),
         ),
       ),
       backgroundColor: ColorPattren.backGroundColor,
@@ -82,7 +85,9 @@ class _AddFlightState extends State<AddFlight> {
                       value: cityVal,
                     ),
                     IconButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          Get.to(AddCity());
+                        },
                         icon: const Icon(
                           Icons.add_circle_outline,
                           size: 35,

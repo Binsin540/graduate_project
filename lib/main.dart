@@ -3,6 +3,8 @@ import 'package:get/get.dart';
 import 'package:orchid_app/ui/layout/home_layout/home_layout.dart';
 import 'package:orchid_app/ui/pages/auth_page/login_page.dart';
 
+import 'admin_panel/home_page/homePage.dart';
+
 void main() {
   runApp(const MyApp());
 }
