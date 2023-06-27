@@ -19,6 +19,7 @@ String  ?selectedTrip;
  String  busStopSelected='';
 
 
+
   @override
   State<RequestPage> createState() => _RequestPageState();
 }
@@ -32,13 +33,7 @@ final String citySelect='';
   @override
   Widget build(BuildContext context) {
     return Scaffold(bottomNavigationBar: FlexButton(onTap: (){
-      if(_firstNameCtrl.text==''|| _LastNameCtrl.text=='' || uniSelect==''|| citySelect==''|| widget.busStopSelected==''||widget.selectedTrip==null){
-        Get.snackbar("invalid", "");
-        print("${_firstNameCtrl.text},${_LastNameCtrl.text},$uniSelect,$citySelect,${widget.busStopSelected}");
-
-      }else{
-        print("${_firstNameCtrl.text},${_LastNameCtrl.text},$uniSelect,$citySelect,${widget.busStopSelected},${widget.selectedTrip}");
-      }
+      Get.to( BusPage());
     },borderWidth: 1.5,borderColor: Colors.pink.shade200,height: 70,width: double.maxFinite,color: ColorPattren.darkAccentBlue,widget: TitleText(text: "Check It Out",color: Colors.pink.shade200),),
       backgroundColor: ColorPattren.backGroundColor,
       body: SingleChildScrollView(
@@ -110,7 +105,7 @@ final String citySelect='';
               ),
 
 
-              
+
 
             ],
           ),

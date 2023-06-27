@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:orchid_app/ui/layout/home_layout/home_layout.dart';
+import 'package:orchid_app/ui/pages/add_request_pages/bus_page.dart';
 import 'package:orchid_app/ui/pages/auth_page/login_page.dart';
 
 import 'admin_panel/home_page/homePage.dart';
@@ -29,7 +30,7 @@ class MyApp extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.blue,
       ),
-      home: LoginPage(),
+      home: BusPage(),
     );
   }
 }
