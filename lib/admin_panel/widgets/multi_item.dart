@@ -1,3 +1,5 @@
+import 'dart:ffi';
+
 import 'package:flutter/material.dart';
 
 import '../../ui/style/app_color.dart';
@@ -10,6 +12,7 @@ class MultiSelectItem extends StatefulWidget {
       this.shape,
       required this.child,
       this.buttColor,
+        required this.onSelectedItemsChangedMain,
       Key? key})
       : super(key: key);
   Color? buttColor;
@@ -17,7 +20,8 @@ class MultiSelectItem extends StatefulWidget {
   ShapeBorder? shape;
   double height;
   double? width;
-  List<String> listOfItem;
+  Map<String,bool> listOfItem;
+  final Function(Map<String,bool>) onSelectedItemsChangedMain;
   @override
   State<MultiSelectItem> createState() => _MultiSelectItemState();
 }
@@ -25,12 +29,15 @@ class MultiSelectItem extends StatefulWidget {
 class _MultiSelectItemState extends State<MultiSelectItem> {
   List<String> _selectedItems = [];
   void _showMultiSelect() async {
-    final List<String> items = widget.listOfItem;
+    final Map<String,bool> items = widget.listOfItem;
     final List<String>? results = await showDialog(
         context: context,
         builder: (BuildContext context) {
           return MultiSelect(
             items: items,
+            onSelectedItemsChanged: (value){
+              widget.onSelectedItemsChangedMain(value);
+            },
           );
         });
     if (results != null) {
@@ -63,7 +70,7 @@ class _MultiSelectItemState extends State<MultiSelectItem> {
               children: _selectedItems
                   .map((e) => Container(
                         child: Text(e,
-                            style: TextStyle(color: ColorPattren.lightPink)),
+                            style: const TextStyle(color: ColorPattren.lightPink)),
                         decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(20),
                             color: ColorPattren.darkBlue),
@@ -79,8 +86,9 @@ class _MultiSelectItemState extends State<MultiSelectItem> {
 }
 
 class MultiSelect extends StatefulWidget {
-  MultiSelect({required this.items, Key? key}) : super(key: key);
-  final List<String> items;
+  MultiSelect({required this.items, required this.onSelectedItemsChanged, Key? key}) : super(key: key);
+   Map<String,bool> items;
+  Function(Map<String,bool>) onSelectedItemsChanged;
   @override
   State<MultiSelect> createState() => _MultiSelectState();
 }
@@ -90,12 +98,10 @@ class _MultiSelectState extends State<MultiSelect> {
 
   void _itemChange(String itemValue, bool isSelected) {
     setState(() {
-      if (isSelected) {
-        _selectedItems.add(itemValue);
-      } else {
-        _selectedItems.remove(itemValue);
-      }
+        widget.items[itemValue] = isSelected;
+        print(widget.items);
     });
+    widget.onSelectedItemsChanged(widget.items);
   }
 
   void _cancel() {
@@ -115,24 +121,25 @@ class _MultiSelectState extends State<MultiSelect> {
           child: Text('اختار المواقف:')),
       content: SingleChildScrollView(
         child: ListBody(
-          children: widget.items
+          children: widget.items.keys
               .map((item) => CheckboxListTile(
-                  value: _selectedItems.contains(item),
-                  title: Text(item),
-                  controlAffinity: ListTileControlAffinity.leading,
-                  onChanged: (isChecked) => _itemChange(item, isChecked!)))
+              value: widget.items[item]!,
+              title: Text(item),
+
+              controlAffinity: ListTileControlAffinity.leading,
+              onChanged: (isChecked) => _itemChange(item, isChecked!)))
               .toList(),
         ),
       ),
       actions: [
-        TextButton(onPressed: _cancel, child: Text('Cancel')),
+        TextButton(onPressed: _cancel, child: const Text('Cancel')),
         ElevatedButton(
-            style: ButtonStyle(
+            style: const ButtonStyle(
                 backgroundColor: MaterialStatePropertyAll(
-              ColorPattren.lightPink,
-            )),
+                  ColorPattren.lightPink,
+                )),
             onPressed: _submit,
-            child: Text('Submit'))
+            child: const Text('Submit'))
       ],
     );
   }

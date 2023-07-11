@@ -17,19 +17,35 @@ class _AddFlightState extends State<AddFlight> {
   var cityVal;
   var busnum;
   List<String> busStop = [];
+  Map<String, bool> busStops = {};
   DateTime flightDate = DateTime.now();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       bottomNavigationBar: Padding(
         padding: const EdgeInsets.all(8.0),
         child: InkWell(
-          child: Container(alignment: Alignment.center,
+          onTap: (){
+            print(busStops);
+          },
+          child: Container(
+              alignment: Alignment.center,
               height: 100,
-              decoration: BoxDecoration(gradient: LinearGradient(begin: Alignment.topCenter,end: Alignment.bottomCenter,colors: [ColorPattren.darkAccentBlue,ColorPattren.darkPurple]),
-                  border: Border.all(color: ColorPattren.darkPurple, width: 5),
-                  borderRadius: BorderRadius.circular(20),
-                  ), child: Text('Submit',style: TextStyle(color: ColorPattren.backGroundColor,fontSize: 36))),
+              decoration: BoxDecoration(
+                gradient: LinearGradient(
+                    begin: Alignment.topCenter,
+                    end: Alignment.bottomCenter,
+                    colors: [
+                      ColorPattren.darkAccentBlue,
+                      ColorPattren.darkPurple
+                    ]),
+                border: Border.all(color: ColorPattren.darkPurple, width: 5),
+                borderRadius: BorderRadius.circular(20),
+              ),
+              child: Text('Submit',
+                  style: TextStyle(
+                      color: ColorPattren.backGroundColor, fontSize: 36))),
         ),
       ),
       backgroundColor: ColorPattren.backGroundColor,
@@ -99,7 +115,14 @@ class _AddFlightState extends State<AddFlight> {
             MultiSelectItem(
               height: 50,
               buttColor: ColorPattren.lightPink,
-              listOfItem: ['mazzeh', 'asdasdsa', 'asdsadsad', 'dasdsadjhjhg'],
+              listOfItem:  {
+                'mazzeh': true,
+                'asdasdsa': true,
+                'asdsadsad': true,
+                'dasdsadjhjhg': true
+              },
+
+onSelectedItemsChangedMain: (value){busStops = value;},
               child: const Text('اختر المواقف ',
                   style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
             ),
@@ -188,7 +211,9 @@ class _AddFlightState extends State<AddFlight> {
                       value: busnum,
                     ),
                     IconButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          print(busStop);
+                        },
                         icon: const Icon(
                           Icons.add_circle_outline,
                           size: 35,
