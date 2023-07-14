@@ -24,17 +24,104 @@ class _HomelayoutState extends State<Homelayout> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(drawer: Drawer(backgroundColor: ColorPattren.backGroundColor,width: 250,child: Column(children: [],)),
-      appBar: AppBar(
-          actions: [Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: CircleAvatar(
-                backgroundColor: ColorPattren.darkAccentBlue,
-                child: Icon(Icons.person)),
-          ),],
-          backgroundColor: ColorPattren.backGroundColor,
-          elevation: 0),
-      body: SingleChildScrollView(child: pages[currentin]),
+    return Scaffold(
+      drawer: SafeArea(
+        child: Directionality(textDirection: TextDirection.rtl,
+          child: Drawer(
+              backgroundColor: ColorPattren.backGroundColor,
+              width: 250,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Container(
+                    padding: EdgeInsets.all(10),
+                    color: ColorPattren.lightPink,
+                    width: double.maxFinite,
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Padding(
+                          padding: EdgeInsets.only(bottom: 20.0),
+                          child: CircleAvatar(
+                              maxRadius: 30,
+                              backgroundColor: ColorPattren.darkAccentBlue,
+                              child: Icon(
+                                Icons.person,
+                                size: 50,
+                              )),
+                        ),
+                        Text(
+                          'Sameer Dagher',
+                          style: TextStyle(
+                              color: ColorPattren.darkPurple,
+                              fontSize: 16,
+                              fontWeight: FontWeight.bold),
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: const [
+                            Text(
+                              "جامعة الاتحاد الخاصة",
+                              style: TextStyle(fontSize: 14),
+                            ),
+                            Icon(Icons.arrow_downward_outlined)
+                          ],
+                        ),
+                      ],
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 10.0),
+                    child: Row(
+                      children: [
+                        Icon(Icons.wallet, color: ColorPattren.darkPurple),
+                        Padding(
+                          padding: const EdgeInsets.all(10.0),
+                          child: Text(
+                            'المحفظة',
+                            style: TextStyle(
+                                fontSize: 18, color: ColorPattren.darkPurple),
+                          ),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.only(left:  20.0),
+                          child: Text("1000 ل.س"),
+                        )
+                      ],
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 10.0),
+                    child: Row(
+                      children: [
+                        Icon(Icons.settings, color: ColorPattren.darkPurple),
+                        Padding(
+                          padding: const EdgeInsets.all(10.0),
+                          child: Text(
+                            'الاعدادات',
+                            style: TextStyle(
+                                fontSize: 18, color: ColorPattren.darkPurple),
+                          ),
+                        ),
+
+                      ],
+                    ),
+                  ),
+
+
+                ],
+              )),
+        ),
+      ),
+      appBar: AppBar(actions: const [
+        Padding(
+          padding: EdgeInsets.all(8.0),
+          child: CircleAvatar(
+              backgroundColor: ColorPattren.darkAccentBlue,
+              child: Icon(Icons.person)),
+        ),
+      ], backgroundColor: ColorPattren.backGroundColor, elevation: 0),
+      body: Directionality(textDirection: TextDirection.rtl,child: SingleChildScrollView(child: pages[currentin])),
       backgroundColor: ColorPattren.backGroundColor,
       bottomNavigationBar: BottomNavigationBar(
           onTap: (index) {
@@ -49,7 +136,7 @@ class _HomelayoutState extends State<Homelayout> {
           unselectedItemColor: Colors.grey[500],
           selectedItemColor: ColorPattren.backGroundColor,
           backgroundColor: ColorPattren.lightPink,
-          items: [
+          items: const [
             BottomNavigationBarItem(
               label: 'home',
               icon: Icon(Icons.home_filled),

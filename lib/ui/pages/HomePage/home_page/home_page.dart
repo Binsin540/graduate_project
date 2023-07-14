@@ -30,7 +30,7 @@ class _HomePageOState extends State<HomePageO> {
             children: [
               Column(
                 children: [
-                  TitleText(text: 'Tomorrow', size: 26),
+                  TitleText(text: 'غدا', size: 26),
                   TitleText(text: tomorrow),
                 ],
               ),
@@ -43,7 +43,7 @@ class _HomePageOState extends State<HomePageO> {
                 widget: TitleText(
                   size: 18,
                   color: ColorPattren.darkPurple,
-                  text: 'add request +',
+                  text: 'اضافة طلب +',
                 ),
                 height: 70,
                 width: 140,
@@ -86,7 +86,7 @@ class _HomePageOState extends State<HomePageO> {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               TitleText(
-                                text: "${planMod[index].planName} Checkout :",
+                                text: " اشتراك ${planMod[index].planName}:",
                               ),
                               const Divider(
                                   height: 4,
@@ -101,7 +101,7 @@ class _HomePageOState extends State<HomePageO> {
                                 size: 12,
                               ),
                               SubText(
-                                  text: "pay : ${planMod[index].price} Sp",
+                                  text: "قيمة الاشتراك : ${planMod[index].price} ل.س",
                                   fontWeight: FontWeight.w500,
                                   size: 12),
                             ]),
@@ -115,7 +115,7 @@ class _HomePageOState extends State<HomePageO> {
                           borderColor: Colors.transparent,
                           width: 120,
                           height: 40,
-                          widget: TitleText(text: 'Check Out', size: 18,color: ColorPattren.lightPink),
+                          widget: TitleText(text: 'اشترك الان', size: 18,color: ColorPattren.lightPink),
                         ))
                   ],
                 ),
