@@ -43,7 +43,7 @@ class _AddFlightState extends State<AddFlight> {
                 border: Border.all(color: ColorPattren.darkPurple, width: 5),
                 borderRadius: BorderRadius.circular(20),
               ),
-              child: Text('Submit',
+              child: Text('حفظ',
                   style: TextStyle(
                       color: ColorPattren.backGroundColor, fontSize: 36))),
         ),

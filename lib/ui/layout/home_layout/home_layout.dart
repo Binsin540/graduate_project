@@ -4,6 +4,7 @@ import 'package:orchid_app/ui/style/app_color.dart';
 
 import '../../pages/HomePage/calender_page.dart';
 import '../../pages/HomePage/home_page/home_page.dart';
+import '../../pages/HomePage/home_page/request_page_pe.dart';
 import '../../pages/add_request_pages/request_page.dart';
 
 class Homelayout extends StatefulWidget {
@@ -17,14 +18,14 @@ class _HomelayoutState extends State<Homelayout> {
   int currentin = 0;
   List pages = [
     HomePageO(),
-    RequestPage(),
+    RequestPagep(),
     CalPage(),
   ];
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(leading: Drawer(backgroundColor: ColorPattren.backGroundColor,elevation: 0,child: Icon(Icons.menu,color: ColorPattren.darkBlue,)),
+    return Scaffold(drawer: Drawer(backgroundColor: ColorPattren.backGroundColor,width: 250,child: Column(children: [],)),
+      appBar: AppBar(
           actions: [Padding(
             padding: const EdgeInsets.all(8.0),
             child: CircleAvatar(

@@ -1,5 +1,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.orchid_app">
+        package="com.example.orchid_app">
    <application
         android:label="orchid_app"
         android:name="${applicationName}"
