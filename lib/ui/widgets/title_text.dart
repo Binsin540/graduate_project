@@ -15,7 +15,7 @@ class TitleText extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Text(
+    return Text(textDirection: TextDirection.rtl,
       text,
       style: TextStyle(
           color: color,

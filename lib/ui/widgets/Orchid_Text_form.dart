@@ -20,7 +20,7 @@ TextInputType? inputType;
             color: Colors.transparent  ,
             width: 2,
           )),
-      height: 103,child: Column(crossAxisAlignment: CrossAxisAlignment.start,mainAxisAlignment: MainAxisAlignment.start,children: [
+      height: 103,child: Column(crossAxisAlignment: CrossAxisAlignment.end,mainAxisAlignment: MainAxisAlignment.start,children: [
         TitleText(size: 18,text: title,),
         TextFormField(keyboardType: inputType,controller:controll,decoration: InputDecoration(  enabledBorder: UnderlineInputBorder(borderSide: BorderSide(color: Colors.pink.shade100))),)
       ]),

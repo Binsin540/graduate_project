@@ -34,38 +34,38 @@ final String citySelect='';
   Widget build(BuildContext context) {
     return Scaffold(bottomNavigationBar: FlexButton(onTap: (){
       Get.to( BusPage());
-    },borderWidth: 1.5,borderColor: Colors.pink.shade200,height: 70,width: double.maxFinite,color: ColorPattren.darkAccentBlue,widget: TitleText(text: "Check It Out",color: Colors.pink.shade200),),
+    },borderWidth: 1.5,borderColor: Colors.pink.shade200,height: 70,width: double.maxFinite,color: ColorPattren.darkAccentBlue,widget: TitleText(text: "اشترك الان",color: Colors.pink.shade200),),
       backgroundColor: ColorPattren.backGroundColor,
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 30),
           child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.end,
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Padding(
                 padding: const EdgeInsets.symmetric(vertical: 10.0),
                 child: TitleText(
-                  text: 'Add Your Request :',
+                  text: 'اضافة طلب :',
                   color: ColorPattren.darkAccentBlue,
                   size: 26,
                 ),
               ),
               Padding(
                 padding: const EdgeInsets.symmetric(vertical: 8.0),
-                child: TextFormO(title: 'First Name',inputType: TextInputType.name,controll: _firstNameCtrl),
+                child: TextFormO(title: 'الاسم الاول',inputType: TextInputType.name,controll: _firstNameCtrl),
               ),
               Padding(
                 padding: const EdgeInsets.symmetric(vertical: 8.0),
-                child: TextFormO(title: 'Last Name',inputType: TextInputType.name,controll: _LastNameCtrl),
+                child: TextFormO(title: ' الاسم الاخير',inputType: TextInputType.name,controll: _LastNameCtrl),
               ),
               Padding(
                 padding: const EdgeInsets.symmetric(vertical: 20.0),
-                child: ExpandSelector(title: 'Choose University',selectString: uireq.uniID, sValue: uniSelect),
+                child: ExpandSelector(title: 'اختر الجامعة',selectString: uireq.uniID, sValue: uniSelect),
               ),
               Padding(
                 padding: const EdgeInsets.symmetric(vertical: 20.0),
-                child: ExpandSelector(title: 'Choose City',selectString: uireq.city,sValue: citySelect),
+                child: ExpandSelector(title: 'اختر المدينة',selectString: uireq.city,sValue: citySelect),
               ),
 
               Padding(
@@ -74,7 +74,7 @@ final String citySelect='';
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
-                      TitleText(text: "Chose your Trip time:  ",color: ColorPattren.darkBlue),
+                      TitleText(text: ":اختر ساعة الرحلة  ",color: ColorPattren.darkBlue),
                       DropdownButton(icon:  const Icon(CupertinoIcons.clock,color: ColorPattren.darkPurple),
                         value: widget.selectedTrip,
                         elevation: 1,
@@ -97,11 +97,11 @@ final String citySelect='';
               ),
               Padding(
                 padding: const EdgeInsets.symmetric(vertical: 20.0),
-                child: ExpandSelector(title: 'Choose Bus Stop',selectString:uireq.busStop[bSId],sValue:widget.busStopSelected ,),
+                child: ExpandSelector(title: 'اختر الموقف',selectString:uireq.busStop[bSId],sValue:widget.busStopSelected ,),
               ),
               Padding(
                 padding:  const EdgeInsets.symmetric(vertical: 10.0),
-                child: TitleText(text: 'Price =    16000',size: 26, ),
+                child: TitleText(text: 'التكلفة =    16000',size: 26, ),
               ),
 
 

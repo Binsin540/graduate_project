@@ -12,8 +12,8 @@ class RequestModel {
   RequestModel({required this.uniID,required this.busStop, required this.city,required this.tripTime,required this.price});
 }
 
-RequestModel uireq=RequestModel(uniID: ['Spu','Iust','Aiu','Ipu','Ru','Jpu'],
-  city: ['jdaydet Artouz','Mazzeh','BabToma'],
+RequestModel uireq=RequestModel(uniID: ['السورية','الدولية ','الاوروبية','الاتحاد','الرشيد','الجزيرة'],
+  city: ['جديدة عرطوز','مزة','باب توما'],
   tripTime: ["6:36",'8:30','10:30'],
   busStop: [
   ['قطنا كنيسة',"كازية حمودة",'مفرق جديدة الثاني',"بحرى","ساحة بيسان","مخفر","دوار الجندي","قوس جديدة","مفرق صحنايا"],
