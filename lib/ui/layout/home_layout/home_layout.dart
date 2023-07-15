@@ -133,18 +133,18 @@ class _HomelayoutState extends State<Homelayout> {
           selectedIconTheme:
               IconThemeData(color: ColorPattren.backGroundColor, size: 30),
           selectedFontSize: 18,
-          unselectedItemColor: Colors.grey[500],
+          unselectedItemColor: ColorPattren.darkPurple,
           selectedItemColor: ColorPattren.backGroundColor,
           backgroundColor: ColorPattren.lightPink,
           items: const [
             BottomNavigationBarItem(
-              label: 'home',
+              label: 'الصفحة الرئيسية:',
               icon: Icon(Icons.home_filled),
             ),
             BottomNavigationBarItem(
-                label: 'request', icon: Icon(CupertinoIcons.clock_fill)),
+                label: 'السجل', icon: Icon(CupertinoIcons.clock_fill)),
             BottomNavigationBarItem(
-                icon: Icon(Icons.calendar_month), label: 'calender')
+                icon: Icon(Icons.calendar_month), label: "كل الرحل")
           ]),
     );
   }

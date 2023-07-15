@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'dart:math';
 import 'package:get/get.dart';
 import 'package:orchid_app/admin_panel/home_page/accepted_request.dart';
 import 'package:orchid_app/admin_panel/home_page/add_city.dart';
@@ -17,7 +18,11 @@ class HomePageAdmin extends StatefulWidget {
 }
 
 class _HomePageAdminState extends State<HomePageAdmin> {
+  double h=250;
+  double w=50;
+  int x=0;
   @override
+
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
@@ -49,7 +54,35 @@ class _HomePageAdminState extends State<HomePageAdmin> {
                             return Padding(
                               padding: EdgeInsets.symmetric(
                                   horizontal: 10, vertical: 30),
-                              child: Stack(children: [
+                              child: Stack(children: [ Positioned(right: 1,left: 1,top: 50,bottom: 1,
+                                child: Column(
+                                  children: [
+
+                                    Stack(alignment: Alignment.center,
+                                      children: [
+                                        Container(
+                                          decoration:
+                                          BoxDecoration(shape: BoxShape.circle, color: ColorPattren.darkBlue),
+                                          width: 250,
+                                          height: 250,
+                                          alignment: Alignment.center,
+
+                                        ),
+
+                                        Positioned(left: 1,child: Container(height: ((busList[index].chairChecked*250)/busList[index].chairCount).toDouble(),width:((busList[index].chairChecked*250)/busList[index].chairCount).toDouble() ,decoration:  BoxDecoration(shape: BoxShape.circle,color: Colors.red),)),
+
+                                        Container(padding: EdgeInsets.only(top: 30,right: 75),child: Text(style: TextStyle(fontWeight: FontWeight.bold,color: ColorPattren.darkBlue,fontSize: 22),"${busList[index].chairCount.toInt()}/${busList[index].chairChecked.toInt()}"),
+                                          decoration:
+                                          BoxDecoration(color: ColorPattren.lightPink, shape: BoxShape.circle),
+                                          height: 200,
+                                          width: 200,),
+
+                                        Positioned(bottom: 0,child: Container(color:  ColorPattren.darkPurple,width: 400,height: 150,),),
+                                      ],
+                                    ),
+                                  ],
+                                ),
+                              ),
                                 Text(
                                   " رقم الباص : ${busList[index].busNum}",
                                   style: TextStyle(
@@ -60,7 +93,7 @@ class _HomePageAdminState extends State<HomePageAdmin> {
                                 Positioned(
                                     left: 0,
                                     child: Text(
-                                      "اسم صاحب الباص: ${busList[index].busDriver}",
+                                      "اسم  السائق: ${busList[index].busDriver}",
                                       style: TextStyle(
                                           color: ColorPattren.backGroundColor,
                                           fontWeight: FontWeight.bold,
@@ -71,7 +104,14 @@ class _HomePageAdminState extends State<HomePageAdmin> {
                                     child: Text('اسم الخط:',
                                         style: TextStyle(
                                             color: ColorPattren.backGroundColor,
+                                            fontSize: 22))),
+                                Positioned(left: 0,
+                                    bottom: 0,
+                                    child: Text('تاريخ الرحلة:${busList[index].date}',
+                                        style: TextStyle(
+                                            color: ColorPattren.backGroundColor,
                                             fontSize: 22)))
+
                               ]),
                             );
                           },
@@ -132,7 +172,13 @@ class _HomePageAdminState extends State<HomePageAdmin> {
                                 style:
                                 TextStyle(fontSize: 18,color: ColorPattren.backGroundColor)),
                           ),
-                          FlexButton(
+                          FlexButton(onTap: (){setState(() {
+
+
+
+                            x=x+1;
+                            print(x);
+                          });},
                             borderColor: Colors.transparent,
 
                             color: ColorPattren.darkBlue,
